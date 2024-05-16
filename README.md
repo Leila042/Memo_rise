@@ -20,45 +20,45 @@ Git
 ## Set Up
 Clone the Repository:
 
-'''bash
+```bash
 git clone https://github.com/Leila042/Memo_rise.git
 cd Memo_rise
-'''
+```
 
 ### Initialize the Front-End:
 
 Navigate to the front-end directory and install the dependencies:
 
-'''bash
+```bash
 cd frontend
 npm install
-'''
+```
 
 To start the React application:
 
-'''bash
+```bash
 npm start
-'''
+```
 
 ### Initialize the Back-End:
 
 From the root of the project, navigate to the backend directory:
 
-'''bash
+```bash
 cd backend
 npm install
-'''
+```
 
 To start the Express server:
 
-'''bash
+```bash
 npm start
-'''
+```
 
 Database Initialization:
 
 Ensure SQLite is correctly installed and set up by running the database initialization script if necessary:
 
-'''bash
+```bash
 node database.js
-'''
+```
