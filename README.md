@@ -55,10 +55,17 @@ To start the Express server:
 npm start
 ```
 
-Database Initialization:
+Database Setup
 
-Ensure SQLite is correctly installed and set up by running the database initialization script if necessary:
+To set up the database, please follow these steps:
 
+Ensure that MySQL is installed and running on your machine.
+Run the setup.sql script to create the necessary tables:
 ```bash
-node database.js
+mysql -u your_username -p < path_to/setup.sql
+```
+
+To insert test data, execute the seed.sql script:
+```bash
+mysql -u your_username -p < path_to/seed.sql
 ```

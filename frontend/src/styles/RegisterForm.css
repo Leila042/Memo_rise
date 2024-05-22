@@ -1,0 +1,72 @@
+.register-form-container {
+    max-width: 400px;
+    width: 80%; /* Assurez-vous que le formulaire n'est pas trop large sur de petits écrans */
+    padding: 20px;
+    background: #f7f7f7;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Centre le texte et les éléments à l'intérieur du formulaire */
+    margin: auto; /* Centre le conteneur dans la page */
+    box-sizing: border-box;
+    
+  }
+  
+  .register-form h2 {
+    margin-bottom: 20px;
+    text-align: center; /* Assurez-vous que le titre est bien centré */
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+    width: 100%;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    text-align: left; /* Les labels sont alignés à gauche pour une meilleure structure */
+  }
+  
+  .form-group input {
+    width: calc(100% - 16px);
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    
+  }
+  
+  .submit-button {
+    width: calc(100% - 16px);
+    background-color: #007bff; /* Bleu plus clair */
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  
+  .submit-button:hover {
+    background-color: #0056b3; /* Bleu légèrement plus foncé au survol */
+  }
+  
+  .error-message {
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .login-link {
+    margin-top: 15px;
+    text-align: center;
+  }
+  
+  .login-link a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .login-link a:hover {
+    text-decoration: underline;
+  }
