@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { HashRouter, BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import LoginForm from './components/LoginForm';
+import RegisterForm from './components/RegisterForm';
+import UserProfile from './components/UserProfile';
+import UserOrders from './components/UserOrders';
+import HomePage from './pages/HomePage';
 
-function App() {
+const App = () => {
+  const [userId, setUserId] = useState(null);
+  const [token, setToken] = useState('');
+
+  // Gère la connexion de l'utilisateur et stocke son token
+  const handleLogin = (token) => {
+    setUserId(1);  // ID utilisateur statique pour simplifier
+    setToken(token);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <h1>MemoRise</h1>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<LoginForm onLogin={handleLogin} />} />
+          <Route path="/register" element={<RegisterForm />} />
+          <Route path="/profile" element={userId ? <UserProfile userId={userId} token={token} /> : <p>Veuillez vous connecter</p>} />
+          <Route path="/orders" element={userId ? <UserOrders userId={userId} token={token} /> : <p>Veuillez vous connecter</p>} />
+        </Routes>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
