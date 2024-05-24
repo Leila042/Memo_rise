@@ -8,7 +8,7 @@ const UserProfile = ({ userId, token }) => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/users/profile/${userId}`, {
+        const response = await axios.get(`http://localhost:3000/api/users/profile/${userId}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setUser(response.data.user);
