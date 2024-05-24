@@ -1,20 +1,21 @@
 const express = require('express');
-const bodyParser = require('body-parser');
-const userRoutes = require('./routes/users'); // Ajustez le chemin selon votre structure de dossiers
+const cors = require('cors');
+const userRoutes = require('./routes/users');
 
 const app = express();
-const port = process.env.PORT || 3000;
 
-// Middleware pour analyser les requêtes JSON
-app.use(bodyParser.json());
+// Configuration CORS
+app.use(cors({
+    origin: 'http://localhost:3001', // Autoriser les requêtes de ce domaine
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true, // Permettre les cookies
+    optionsSuccessStatus: 200
+}));
 
-// Utiliser les routes des utilisateurs
-app.use('/api/users', userRoutes);
+app.use(express.json()); // Parsing de JSON avant les routes
+app.use('/api/users', userRoutes); // Routes utilisateur
 
-// Démarrer le serveur
-app.listen(port, () => {
-  console.log(`Serveur démarré sur le port ${port}`);
+app.listen(3000, () => {
+    console.log('Server running on port 3000');
 });
-
-const cors = require('cors');
-app.use(cors()); // Permet toutes les origines par défaut

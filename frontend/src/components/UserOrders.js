@@ -8,7 +8,7 @@ const UserOrders = ({ userId, token }) => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/users/orders/${userId}`, {
+        const response = await axios.get(`http://localhost:3000/api/users/orders/${userId}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setOrders(response.data.orders);
