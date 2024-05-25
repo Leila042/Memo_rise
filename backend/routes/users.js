@@ -8,6 +8,7 @@ require('dotenv').config();
 
 const router = express.Router();
 
+
 // Inscription d'un nouvel utilisateur
 router.post('/register', (req, res) => {
   const { username, email, password } = req.body;
