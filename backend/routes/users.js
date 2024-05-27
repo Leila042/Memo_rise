@@ -2,18 +2,15 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const connection = require('../database'); 
+const authenticateToken = require('../authenticateToken'); // Assurez-vous que ce chemin est correct
 require('dotenv').config();
 
-
-
 const router = express.Router();
-
 
 // Inscription d'un nouvel utilisateur
 router.post('/register', (req, res) => {
   const { username, email, password } = req.body;
   const hashedPassword = bcrypt.hashSync(password, 10);
-
   const query = 'INSERT INTO users (username, email, password_hash, role) VALUES (?, ?, ?, "user")';
 
   connection.query(query, [username, email, hashedPassword], (err, results) => {
@@ -49,8 +46,8 @@ router.post('/login', (req, res) => {
   });
 });
 
-// Récupération du profil utilisateur
-router.get('/profile/:userId', (req, res) => {
+// Récupération du profil utilisateur avec authentification
+router.get('/profile/:userId', authenticateToken, (req, res) => {
   const { userId } = req.params;
   const query = 'SELECT username, email, role, created_at FROM users WHERE user_id = ?';
 
@@ -66,8 +63,8 @@ router.get('/profile/:userId', (req, res) => {
   });
 });
 
-// Récupération des commandes de l'utilisateur
-router.get('/orders/:userId', (req, res) => {
+// Récupération des commandes de l'utilisateur avec authentification
+router.get('/orders/:userId', authenticateToken, (req, res) => {
   const { userId } = req.params;
   const query = 'SELECT * FROM orders WHERE user_id = ?';
 

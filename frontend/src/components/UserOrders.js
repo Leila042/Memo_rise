@@ -24,7 +24,7 @@ const UserOrders = ({ userId, token }) => {
 
   return (
     <div>
-      <h2>Commandes de l'Utilisateur</h2>
+      <h2></h2>
       {error ? <p>{error}</p> : (
         <ul>
           {orders.map((order, index) => (

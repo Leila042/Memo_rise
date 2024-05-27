@@ -24,10 +24,10 @@ const UserProfile = ({ userId, token }) => {
 
   return (
     <div>
-      <h2>Profil Utilisateur</h2>
+      <h2></h2>
       {error ? <p>{error}</p> : (
         <div>
-          <p>Nom d'utilisateur: {user.username}</p>
+          <p>Nom: {user.username}</p>
           <p>Email: {user.email}</p>
           <p>Rôle: {user.role}</p>
           <p>Date d'inscription: {user.created_at}</p>
