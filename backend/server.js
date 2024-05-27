@@ -1,6 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 const userRoutes = require('./routes/users');
+const authenticateToken = require('./authenticateToken'); // Si dans le même dossier
+
 
 const app = express();
 

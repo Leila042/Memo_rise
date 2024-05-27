@@ -1,7 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
-const Navbar = ({ userId }) => {
+const Navbar = ({ userId, onLogout }) => {
+  const navigate = useNavigate();
+
+  // Fonction qui gère la déconnexion
+  const logout = () => {
+    onLogout(); // Appelle la fonction onLogout passée en props
+    navigate('/login'); // Redirection vers la page de connexion après la déconnexion
+  };
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container">
@@ -40,11 +48,18 @@ const Navbar = ({ userId }) => {
                 </li>
               </>
             ) : (
-              <li className="nav-item">
-                <Link className="nav-link" to="/profile">
-                  Profil
-                </Link>
-              </li>
+              <>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/profile">
+                    Profil
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <button onClick={logout} className="nav-link btn btn-link" style={{ border: 'none', background: 'none', color: 'inherit' }}> {/* Modification ici */}
+                    Déconnexion
+                  </button>
+                </li>
+              </>
             )}
             <li className="nav-item">
               <Link className="nav-link" to="/faq">

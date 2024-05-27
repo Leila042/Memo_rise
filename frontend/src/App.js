@@ -7,40 +7,35 @@ import FAQ from './components/FAQ';
 import ContactForm from './components/ContactForm';
 import HomePage from './pages/HomePage';
 import Navbar from './components/Navbar';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'jquery';
-import 'popper.js';
-import 'bootstrap/dist/js/bootstrap.min.js';
-import '@fortawesome/fontawesome-free/css/all.min.css';
 import Footer from './components/Footer';
 import './App.css'; 
-
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
   const [userId, setUserId] = useState(null);
   const [token, setToken] = useState('');
 
-  // Gère la connexion de l'utilisateur et stocke son token
   const handleLogin = (token) => {
-    // Décodez le token pour obtenir l'ID utilisateur, ici un exemple statique
     setUserId(1);  // ID utilisateur statique pour simplifier
     setToken(token);
+  };
+
+  const handleLogout = () => {
+    setUserId(null);
+    setToken('');
+    localStorage.removeItem('authToken'); // Suppression du token de l'authentification
   };
 
   return (
     <Router>
       <div className="App">
-        <Navbar userId={userId} />
+        <Navbar userId={userId} onLogout={handleLogout} />
         <div className="container mt-4">
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/login" element={<LoginForm onLogin={handleLogin} />} />
             <Route path="/register" element={<RegisterForm />} />
-            <Route
-              path="/profile"
-              element={userId ? <UserProfilePage userId={userId} token={token} /> : <p>Veuillez vous connecter</p>}
-            />
+            <Route path="/profile" element={userId ? <UserProfilePage userId={userId} token={token} /> : <p>Veuillez vous connecter</p>} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/contact" element={<ContactForm />} />
           </Routes>
