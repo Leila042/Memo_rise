@@ -1,7 +1,7 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const connection = require('../database'); // Assurez-vous que ce chemin est correct selon votre structure de dossiers
+const connection = require('../database'); 
 require('dotenv').config();
 
 

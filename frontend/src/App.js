@@ -13,6 +13,7 @@ import 'popper.js';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import Footer from './components/Footer';
+import './App.css'; 
 
 
 
