@@ -1,8 +1,23 @@
-.App {
-    height: 100vh;  
-    display: flex;
-    justify-content: center; 
-    align-items: center; 
-    background: #e9ecef;  
-  }
-  
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+#App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+footer {
+  background-color: #f8f9fa;
+  color: #343a40;
+  text-align: center;
+  padding: 1rem;
+  position: relative;
+  width: 100%;
+}
