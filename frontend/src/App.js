@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LoginForm from './components/LoginForm';
 import RegisterForm from './components/RegisterForm';
 import UserProfilePage from './pages/UserProfilePage';
+import CatalogPage from './pages/CatalogPage';
 import FAQ from './components/FAQ';
 import ContactForm from './components/ContactForm';
 import HomePage from './pages/HomePage';
@@ -10,6 +11,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import './App.css'; 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import BookDetailPage from './pages/BookDetailPage';
 
 const App = () => {
   const [userId, setUserId] = useState(null);
@@ -36,6 +38,8 @@ const App = () => {
             <Route path="/login" element={<LoginForm onLogin={handleLogin} />} />
             <Route path="/register" element={<RegisterForm />} />
             <Route path="/profile" element={userId ? <UserProfilePage userId={userId} token={token} /> : <p>Veuillez vous connecter</p>} />
+            <Route path="/catalog" element={<CatalogPage />} /> 
+            <Route path="/book/:id" component={BookDetailPage} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/contact" element={<ContactForm />} />
           </Routes>

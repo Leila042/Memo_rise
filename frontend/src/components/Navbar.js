@@ -34,6 +34,9 @@ const Navbar = ({ userId, onLogout }) => {
                 Accueil
               </Link>
             </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/catalog">Catalogue</Link> {/* Ajout du lien vers le catalogue */}
+            </li>
             {!userId ? (
               <>
                 <li className="nav-item">
