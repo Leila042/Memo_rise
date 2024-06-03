@@ -2,7 +2,7 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const connection = require('../database'); 
-const authenticateToken = require('../authenticateToken'); // Assurez-vous que ce chemin est correct
+const authenticateToken = require('../authenticateToken'); 
 require('dotenv').config();
 
 const router = express.Router();
@@ -64,17 +64,32 @@ router.get('/profile/:userId', authenticateToken, (req, res) => {
 });
 
 // Récupération des commandes de l'utilisateur avec authentification
-router.get('/orders/:userId', authenticateToken, (req, res) => {
-  const { userId } = req.params;
-  const query = 'SELECT * FROM orders WHERE user_id = ?';
+  router.get('/orders/:userId', authenticateToken, (req, res) => {
+    const { userId } = req.params;
+    const query = 'SELECT * FROM orders WHERE user_id = ?';
 
-  connection.query(query, [userId], (err, results) => {
-    if (err) {
-      console.error(err);
-      return res.status(500).json({ message: "Erreur lors de la récupération des commandes." });
-    }
-    res.json({ orders: results });
-  });
+    connection.query(query, [userId], (err, results) => {
+      if (err) {
+        console.error(err);
+        return res.status(500).json({ message: "Erreur lors de la récupération des commandes." });
+      }
+      res.json({ orders: results });
+    });
+
+
+    // Exécuter la requête sur la base de données ici
+    console.log('SQL Query:', query); // Log de la requête SQL finale
+
+    database.query(query, (err, results) => {
+        if (err) {
+            console.error('Erreur lors de l\'exécution de la requête SQL:', err);
+            return res.status(500).json({ message: "Erreur interne du serveur" });
+        }
+        res.json(results);
+    });
+
+
+
 });
 
 module.exports = router;
