@@ -1,15 +1,15 @@
 import React from 'react';
 import UserProfile from '../components/UserProfile';
 import UserOrders from '../components/UserOrders';
-import { useNavigate } from 'react-router-dom'; // Importation de useNavigate
+import { useNavigate } from 'react-router-dom'; 
 
 const UserProfilePage = ({ userId, token }) => {
-  const navigate = useNavigate(); // Création de l'instance de navigate
+  const navigate = useNavigate(); 
 
   const handleLogout = () => {
-    // Effacer le token d'authentification du stockage local
-    localStorage.removeItem('authToken'); // Assurez-vous que le token est stocké avec la clé 'authToken'
-    navigate('/login'); // Utilisez navigate pour rediriger
+  
+    localStorage.removeItem('authToken'); 
+    navigate('/login'); 
   };
 
   return (
