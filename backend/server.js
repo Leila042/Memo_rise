@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const userRoutes = require('./routes/users');
 const bookRoutes = require('./routes/books'); 
-const authenticateToken = require('./authenticateToken'); 
+const authenticateToken = require('./middlewares/authenticateToken'); 
 
 
 const app = express();
@@ -17,6 +17,7 @@ app.use(cors({
 
 app.use(express.json()); 
 app.use('/api/users', userRoutes); 
+app.use('/api/books', bookRoutes);
 app.use('/api/books', bookRoutes);
 
 app.listen(3000, () => {

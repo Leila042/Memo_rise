@@ -4,10 +4,10 @@ import { Link, useNavigate } from 'react-router-dom';
 const Navbar = ({ userId, onLogout }) => {
   const navigate = useNavigate();
 
-  // Fonction qui gère la déconnexion
+
   const logout = () => {
-    onLogout(); // Appelle la fonction onLogout passée en props
-    navigate('/login'); // Redirection vers la page de connexion après la déconnexion
+    onLogout(); 
+    navigate('/login'); 
   };
 
   return (

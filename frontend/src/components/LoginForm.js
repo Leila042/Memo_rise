@@ -7,7 +7,7 @@ const LoginForm = ({ onLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const navigate = useNavigate(); // Initialisation de useNavigate
+  const navigate = useNavigate(); 
 
   const handleLogin = async (event) => {
     event.preventDefault();
@@ -16,8 +16,8 @@ const LoginForm = ({ onLogin }) => {
         email,
         password
       });
-      onLogin(response.data.token); // Gestion du token, suppose que vous le stockez ou l'utilisez d'une manière ou d'une autre
-      navigate('/profile'); // Redirection vers la page de profil
+      onLogin(response.data.token); 
+      navigate('/profile'); 
     } catch (err) {
       setError(err.response ? err.response.data.message : "Erreur de connexion");
     }

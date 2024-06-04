@@ -62,10 +62,10 @@ To set up the database, please follow these steps:
 Ensure that MySQL is installed and running on your machine.
 Run the setup.sql script to create the necessary tables:
 ```bash
-mysql -u your_username -p < path_to/setup.sql
+mysql -u root -p < db/setup.sql
 ```
 
 To insert test data, execute the seed.sql script:
 ```bash
-mysql -u your_username -p < path_to/seed.sql
+mysql -u root -p < db/seed.sql
 ```

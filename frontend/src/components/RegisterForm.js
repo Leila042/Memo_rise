@@ -17,7 +17,7 @@ const RegisterForm = () => {
         email,
         password
       });
-      alert('Inscription réussie!');
+      console.log('Inscription réussie!');
     } catch (err) {
       setError(err.response ? err.response.data.message : "Erreur lors de l'inscription");
     }
