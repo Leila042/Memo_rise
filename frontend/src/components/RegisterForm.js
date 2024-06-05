@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../styles/RegisterForm.css';  
 
 const RegisterForm = () => {
@@ -8,6 +8,7 @@ const RegisterForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const handleRegister = async (event) => {
     event.preventDefault();
@@ -18,6 +19,7 @@ const RegisterForm = () => {
         password
       });
       console.log('Inscription réussie!');
+      navigate('/login');
     } catch (err) {
       setError(err.response ? err.response.data.message : "Erreur lors de l'inscription");
     }
